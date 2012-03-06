@@ -11,7 +11,7 @@
         <tr>
           <td><b><%= i.service %></b>:</td>
           <td><span class="status-<%= i.status %>"><%= i.status %></span></td>
-          <td><span class="time"><%= time_ago_in_words i.updated_at %></span></td>
+          <td><span class="time"><%= diff = Time.now - i.updated_at; (diff < 60) ? "#{diff.to_i}s" : time_ago_in_words(i.updated_at) %></span></td>
         </tr>
       <% end %>
     </table>
