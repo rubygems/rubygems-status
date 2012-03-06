@@ -1,4 +1,4 @@
-require 'app/workers/ping'
+require File.expand_path('../../../app/workers/ping', __FILE__)
 
 namespace :ping do
   task :once => :environment do
