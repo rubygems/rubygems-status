@@ -17,6 +17,7 @@ class PingWorker
 
     x.status = (flag ? "up" : "down")
     x.save
+    x.touch
   end
 
   def update
