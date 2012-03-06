@@ -1,4 +1,8 @@
 RubygemsStatus::Application.routes.draw do
+  get "status/show"
+
+  get "status/system"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +52,7 @@ RubygemsStatus::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'status#show'
 
   # See how all your routes lay out with "rake routes"
 

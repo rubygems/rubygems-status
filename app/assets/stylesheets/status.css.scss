@@ -1,0 +1,84 @@
+// Place all the styles related to the Status controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #77CD00;
+$red: red;
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#full-status {
+  margin-top: 20px;
+  padding: 5px 5px;
+  background: rgb(238,238,238); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+  
+}
+
+#full-status h1 {
+  margin-left: 100px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+#container {
+  padding: 10px 10px;
+  margin-top: 10px;
+  width:940px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  background: black;
+}
+
+#pings {
+  margin-left: 20px;
+}
+
+.status-up {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  background: $green;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+}
+
+.status-down {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  height: 20px;
+  background: $red;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+}
+
+.color-up {
+  color: $green;
+}
+
+.color-down {
+  color: red;
+}
