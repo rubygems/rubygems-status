@@ -10,13 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305203712) do
+ActiveRecord::Schema.define(:version => 20120306045347) do
 
   create_table "pings", :force => true do |t|
     t.string   "service"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "critical"
+    t.datetime "last_seen"
+    t.text     "description"
   end
 
 end

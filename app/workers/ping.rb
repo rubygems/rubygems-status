@@ -16,16 +16,16 @@ class PingWorker
     x = Ping.new :service => service unless x
 
     x.status = (flag ? "up" : "down")
+    x.last_seen = Time.now
     x.save
-    x.touch
   end
 
   def update
     s = TCPSocket.new "rubygems.org", 80
-    s << "GET /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+    s << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     s2 = TCPSocket.new "rubygems.org", 80
-    s2 << "GET / HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+    s2 << "HEAD / HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     @core_api = false
     @app = false

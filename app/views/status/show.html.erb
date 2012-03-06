@@ -10,8 +10,15 @@
       <% @pings.each do |i| %>
         <tr>
           <td><b><%= i.service %></b>:</td>
-          <td><span class="status-<%= i.status %>"><%= i.status %></span></td>
-          <td><span class="time"><%= diff = Time.now - i.updated_at; (diff < 60) ? "#{diff.to_i}s" : time_ago_in_words(i.updated_at) %></span></td>
+          <td><span class="status-<%= i.state %>"><%= i.state %></span></td>
+          <% unless i.unknown? %>
+            <td><span class="time">updated: <%= diff = i.seconds_ago; (diff < 60) ? "#{diff.to_i}s" : time_ago_in_words(i.last_seen) %></span></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="description"><%= i.description %></span>
+          </td>
         </tr>
       <% end %>
     </table>

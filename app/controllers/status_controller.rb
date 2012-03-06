@@ -1,11 +1,12 @@
 class StatusController < ApplicationController
   def show
-    @core = Ping.find_by_service("Core API")
     @pings = Ping.all.sort_by { |x| x.service }
 
-    if !@core
+    crit = @pings.any? { |x| x.down? and x.critical? }
+
+    if @pings.empty?
       @status = "unknown"
-    elsif @core.status == "down"
+    elsif crit
       @status = "down"
     else
       @status = @pings.any? { |x| x.down? } ? "partial" : "up"
