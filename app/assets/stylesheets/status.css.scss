@@ -119,3 +119,18 @@ body {
   font-size: 0.8em;
 }
 
+@media only screen and (max-device-width: 480px) {
+  #full-status {
+    margin-left: 2px;
+    text-align: center;
+    max-width: 480px;
+  }
+
+  #full-status h1 {
+    margin-left: 0px;
+  }
+
+  .container {
+    max-width: 480px;
+  }
+}
