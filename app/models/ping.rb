@@ -12,7 +12,7 @@ class Ping < ActiveRecord::Base
   end
 
   def seconds_ago
-    Time.now - last_seen
+    Time.now.to_i - last_seen.to_i
   end
 
   def state
