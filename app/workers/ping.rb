@@ -27,11 +27,15 @@ class PingWorker
     s2 = TCPSocket.new "rubygems.org", 80
     s2 << "HEAD / HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
+    s3 = TCPSocket.new "rubygems.org", 80
+    s3 << "HEAD /api/v1/downloads HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+
     @core_api = false
     @app = false
+    @v1_api = false
     @push_api = false
 
-    sockets = [s, s2]
+    sockets = [s, s2, s3]
 
     until sockets.empty?
       r, _, _ = IO.select(sockets, nil, nil, @timeout)
@@ -41,7 +45,9 @@ class PingWorker
           @core_api = check_socket(s)
         when s2
           @app = check_socket(s2)
-          @push_api = @app
+        when s3
+          @v1_api = check_socket(s3)
+          @push_api = @v1_api
         end
       end
 
@@ -51,5 +57,6 @@ class PingWorker
     update_status @core_api, "Core API"
     update_status @app, "Application"
     update_status @push_api, "Push API"
+    update_status @v1_api, "V1 API"
   end
 end
