@@ -51,8 +51,13 @@ class PingWorker
 
     sockets = [s, s2, s3, s4, s5]
 
+    fin = Time.now + @timeout
+
     until sockets.empty?
       r, _, _ = IO.select(sockets, nil, nil, @timeout)
+
+      break if Time.now > fin
+
       r.each do |x|
         case x
         when s
