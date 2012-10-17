@@ -41,6 +41,9 @@ class PingWorker
     s5 = TCPSocket.new "f2.rubygems.org", 80
     s5 << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
+    s6 = TCPSocket.new "rubygems.org", 80
+    s6 << "HEAD /api/v1/dependencies HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+
     @core_api = false
     @app = false
     @v1_api = false
@@ -48,8 +51,9 @@ class PingWorker
     @lb = 0
     @f1 = false
     @f2 = false
+    @dep_api = false
 
-    sockets = [s, s2, s3, s4, s5]
+    sockets = [s, s2, s3, s4, s5, s6]
 
     fin = Time.now + @timeout
 
@@ -73,6 +77,8 @@ class PingWorker
         when s5
           @f2 = check_socket(s5)
           @lb += 1 if @f2
+        when s6
+          @dep_api = check_socket(s6)
         end
       end
 
@@ -83,6 +89,7 @@ class PingWorker
     update_status @app, "Application"
     update_status @push_api, "Push API"
     update_status @v1_api, "V1 API"
+    update_status @dep_api, "Dependency API"
 
     status = case @lb
              when 0
