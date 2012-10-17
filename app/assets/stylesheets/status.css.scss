@@ -22,7 +22,7 @@ body {
   background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
   background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
-  
+
 }
 
 #full-status h1 {
@@ -42,6 +42,11 @@ body {
 
 #pings {
   margin-left: 20px;
+}
+
+#current_status {
+  max-width: 480px;
+  margin: auto;
 }
 
 .status-up {
