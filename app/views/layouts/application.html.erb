@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RubygemsStatus</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-</head>
-<body>
-
-<%= yield %>
-
-
-<br />
-<div id="current_status">
-  RubyGems has been experiencing growing pains lately and we aim to fix that. More information about the current pain points and infrastructure will soon be available <%= link_to "here", "https://groups.google.com/forum/?fromgroups=#!topic/rubygems-org/-xlwOYV9Bgw" %>. Your help is needed!
-</div>
-
-</body>
+  <head>
+    <title>Rubygems System Status</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    <%= yield %>
+    <br />
+    <div id="current_status">
+      RubyGems has been experiencing growing pains lately and we aim to fix that. More information about the current pain points and infrastructure will soon be available <%= link_to "here", "https://groups.google.com/forum/?fromgroups=#!topic/rubygems-org/-xlwOYV9Bgw" %>. Your help is needed!
+    </div>
+  </body>
 </html>
