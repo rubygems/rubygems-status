@@ -12,7 +12,7 @@
           <td><b><%= i.service %></b>:</td>
           <td><span class="status-<%= i.state %>"><%= i.state %></span></td>
           <% unless i.unknown? %>
-            <td><span class="time">updated: <%= diff = i.seconds_ago; (diff < 60) ? "#{diff.to_i}s" : time_ago_in_words(i.last_seen) %></span></td>
+            <td><span class="time">updated: <%= service_last_update_time(i) %></span></td>
           <% end %>
         </tr>
         <tr>

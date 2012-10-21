@@ -12,8 +12,4 @@ class StatusController < ApplicationController
       @status = @pings.any? { |x| x.down? } ? "partial" : "up"
     end
   end
-
-  def system
-  end
-
 end
