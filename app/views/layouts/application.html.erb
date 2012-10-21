@@ -8,10 +8,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
   <body>
-    <%= yield %>
-    <br />
-    <div id="current_status">
-      RubyGems has been experiencing growing pains lately and we aim to fix that. More information about the current pain points and infrastructure will soon be available <%= link_to "here", "https://groups.google.com/forum/?fromgroups=#!topic/rubygems-org/-xlwOYV9Bgw" %>. Your help is needed!
+    <div class="wrapper">
+      <div class="wrapper-header">
+        <div class="header">
+          <%= render :partial => 'status/current' %>
+        </div>
+      </div>
+      <div class="wrapper-content">
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
