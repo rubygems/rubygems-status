@@ -1,26 +1,15 @@
-<div id="full-status">
-  <h1>RubyGems.org Status:
-    <span class="color-<%= @status %>"><%= @status.upcase %></div>
-  </h1>
+<div class="announcement">
+  RubyGems has been experiencing growing pains lately and we aim to fix that. More information about the current pain points and infrastructure will soon be available <%= link_to "here", "https://groups.google.com/forum/?fromgroups=#!topic/rubygems-org/-xlwOYV9Bgw" %>. Your help is needed!
 </div>
-
-<div id="container">
-  <div id="pings">
-    <table>
-      <% @pings.each do |i| %>
-        <tr>
-          <td><b><%= i.service %></b>:</td>
-          <td><span class="status-<%= i.state %>"><%= i.state %></span></td>
-          <% unless i.unknown? %>
-            <td><span class="time">updated: <%= service_last_update_time(i) %></span></td>
-          <% end %>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <div class="description"><%= i.description %></span>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+<div class="main">
+  <%= render :partial => 'pings' %>
+</div>
+<div class="sidebar">
+  <div class="module">
+    <h2>Instant updates <a href="http://twitter.com/rubygems_status">@rubygems_status</a></h2>
+    <div class="module-content">
+      <div id="tweets"></div>
+    </div>
   </div>
 </div>
+<div class="clear"></div>

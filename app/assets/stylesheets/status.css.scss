@@ -1,157 +1,208 @@
-// Place all the styles related to the Status controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-$green: #77CD00;
-$red: red;
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
   margin: 0;
   padding: 0;
 }
 
-#full-status {
-  margin-top: 20px;
-  padding: 5px 5px;
-  background: rgb(238,238,238); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
-  background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+a {
+  color: #016DC9;
+  text-decoration: none;
 
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-#full-status h1 {
-  margin-left: 100px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+/* -------------------------------------------------------------------------- */
+/* Wrappers */
+/* -------------------------------------------------------------------------- */
+
+.wrapper {
+  .wrapper-header {
+    height: 50px;
+    background: linear-gradient(#fafafa,#eaeaea);
+    background: -moz-linear-gradient(#fafafa,#eaeaea);
+    background: -ms-linear-gradient(#fafafa,#eaeaea);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fafafa),color-stop(100%,#eaeaea));
+    background: -webkit-linear-gradient(#fafafa,#eaeaea);
+    background: -o-linear-gradient(#fafafa,#eaeaea);
+    background: linear-gradient(#fafafa,#eaeaea);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea')";
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4),0 0 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #cacaca;
+
+    .header {
+      width: 900px;
+      margin: 0px auto;
+    }
+  }
+
+  .wrapper-content {
+    .content {
+      width: 900px;
+      margin: 0px auto;
+      padding-top: 20px;
+
+      .main {
+        width: 620px;
+        float: left;
+      }
+
+      .sidebar {
+        width: 250px;
+        float: right;
+      }
+    }
+  }
 }
 
-#container {
-  padding: 10px 10px;
-  padding-top: 30px;
-  margin-top: 10px;
-  margin-left: 10%;
-  margin-right: 10%;
-  color: white;
-  background: black;
+/* -------------------------------------------------------------------------- */
+/* General Styles */
+/* -------------------------------------------------------------------------- */
+
+.system-status {
+  height: 50px;
+
+  .current, .refresh-timer {
+    line-height: 50px;
+    height: 50px;
+  }
+
+  .current {
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+  }
+
+  .refresh-timer {
+    font-size: 12px;
+    color: #333;
+    float: right;
+  }
 }
 
-#pings {
-  margin-left: 20px;
-}
-
-#current_status {
-  max-width: 480px;
-  margin: auto;
-}
-
-.status-up {
-  padding-left: 5px;
-  padding-right: 5px;
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-right: 5px;
-  width: 20px;
+span.status {
+  display: block;
+  background: grey;
+  color: #fff;
+  width: 14px;
   height: 20px;
-  background: $green;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: black;
+  line-height: 20px;
+  background: url('/assets/grey.png') no-repeat 0px center;
 }
 
-.status-down {
-  padding-left: 5px;
-  padding-right: 5px;
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-right: 5px;
-  height: 20px;
-  background: $red;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: black;
-}
+span.status-up      { background: url('/assets/green.png') no-repeat 0px center; }
+span.status-down    { background: url('/assets/red.png') no-repeat 0px center; }
+span.status-partial { background: url('/assets/yellow.png') no-repeat 0px center; }
 
-.status-partial {
-  padding-left: 5px;
-  padding-right: 5px;
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-right: 5px;
-  height: 20px;
-  background: yellow;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: black;
-}
+.color         { text-shadow: #fff 0px 1px 0px; }
+.color-up      { color: #89e119; }
+.color-down    { color: #e84120; }
+.color-partial { color: #f5df19; }
+.color-unknown { color: grey; }
 
-.status-unknown {
-  padding-left: 5px;
-  padding-right: 5px;
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-right: 5px;
-  height: 20px;
-  background: orange;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: black;
-}
-
-.color-up {
-  color: $green;
-}
-
-.color-down {
-  color: red;
-}
-
-.color-unknown {
-  color: orange;
-}
-
-.color-partial {
-  color: yellow;
-}
-
-.time {
-  color: grey;
-  font-size: 0.8em;
-  vertical-align: text-top;
-}
-
-.description {
-  margin-left: 4em;
+.announcement {
+  font-size: 13px;
+  padding: 12px;
+  color: #333;
+  line-height: 1.5em;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
   margin-bottom: 20px;
-  font-size: 0.8em;
+  background: #FBFFCE;
+  border: 1px solid #EFF2C7;
 }
 
-@media only screen and (max-device-width: 480px) {
-  #full-status {
-    margin-left: 2px;
-    text-align: center;
-    max-width: 480px;
+#tweets {
+  .tweet {
+    padding: 4px 0px;
+    border-bottom: 1px solid #ddd;
+
+    p {
+      margin: 4px 0px;
+    }
+
+    p.meta {
+      margin: 4px 0px;
+      font-size: 12px;
+
+      a {
+        color: #777;
+      }
+    }
   }
 
-  #full-status h1 {
-    margin-left: 0px;
+  .tweet:last-child {
+    border: 0px none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Services Status Table */
+/* -------------------------------------------------------------------------- */
+
+table.services {
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0px;
   }
 
-  .container {
-    max-width: 480px;
+  td.status {
+    width: 22px;
+  }
+
+  td.service {
+    span.name {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    span.description { 
+      display: inline-block;
+      color: #aaa;
+    }
+  }
+
+  td.time {
+    color: #aaa;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  tr:last-child {
+    td {
+      border: 0px none;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sidebar Styles */
+/* -------------------------------------------------------------------------- */
+
+.sidebar {
+  color: #333;
+  font-size: 13px;
+
+  .module {
+    background: #f1f1f1;
+    padding: 12px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+    h2 {
+      font-size: 13px;
+      margin: 0px;
+      border-bottom: 1px solid #ccc;
+      line-height: 20px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+    }
   }
 }

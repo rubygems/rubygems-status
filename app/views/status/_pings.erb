@@ -1,0 +1,22 @@
+<table class="services">
+  <% @pings.each do |i| %>
+    <tr>
+      <td class="status">
+        <span class="status status-<%= i.state %>"></span>
+      </td>
+      <td class="service">
+        <span class="name"><%= i.service %></span>
+        <% unless i.description.blank? %>
+          <span class="description"><%= i.description %></span>
+        <% end %>
+      </td>
+      <td class="time">
+        <% if !i.unknown? %>
+          updated <%= service_last_update_time(i) %>
+        <% else %>
+          <span class="unknown">&mdash;</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
