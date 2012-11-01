@@ -1,6 +1,22 @@
+/* -------------------------------------------------------------------------- */
+/* Variables and Mixins */
+/* -------------------------------------------------------------------------- */
+
+$header_height: 50px;
+$mobile_header_height: 80px;
+$base_font_size: 13;
+
+@function pem($targetpx, $basepx: $base_font_size) {
+  @return #{$targetpx / $basepx}em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base Styles */
+/* -------------------------------------------------------------------------- */
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: #{$base_font_size}px;
   margin: 0;
   padding: 0;
 }
@@ -20,7 +36,7 @@ a {
 
 .wrapper {
   .wrapper-header {
-    height: 50px;
+    height: $header_height;
     background: linear-gradient(#fafafa,#eaeaea);
     background: -moz-linear-gradient(#fafafa,#eaeaea);
     background: -ms-linear-gradient(#fafafa,#eaeaea);
@@ -62,21 +78,21 @@ a {
 /* -------------------------------------------------------------------------- */
 
 .system-status {
-  height: 50px;
+  height: $header_height;
 
   .current, .refresh-timer {
-    line-height: 50px;
-    height: 50px;
+    line-height: $header_height;
+    height: $header_height;
   }
 
   .current {
-    font-size: 20px;
+    font-size: pem(20);
     font-weight: bold;
     float: left;
   }
 
   .refresh-timer {
-    font-size: 12px;
+    font-size: pem(12);
     color: #333;
     float: right;
   }
@@ -103,10 +119,10 @@ span.status-partial { background: url('/assets/yellow.png') no-repeat 0px center
 .color-unknown { color: grey; }
 
 .announcement {
-  font-size: 13px;
+  font-size: pem(13);
+  line-height: pem(20);
   padding: 12px;
   color: #333;
-  line-height: 1.5em;
   border-radius: 4px;
   -moz-border-radius: 4px;
   margin-bottom: 20px;
@@ -125,7 +141,7 @@ span.status-partial { background: url('/assets/yellow.png') no-repeat 0px center
 
     p.meta {
       margin: 4px 0px;
-      font-size: 12px;
+      font-size: pem(12);
 
       a {
         color: #777;
@@ -158,11 +174,11 @@ table.services {
   td.service {
     span.name {
       display: inline-block;
-      font-size: 16px;
+      font-size: pem(16);
       font-weight: bold;
     }
 
-    span.description { 
+    span.description {
       display: inline-block;
       color: #aaa;
     }
@@ -170,7 +186,7 @@ table.services {
 
   td.time {
     color: #aaa;
-    font-size: 12px;
+    font-size: pem(12);
     text-align: right;
   }
 
@@ -187,7 +203,7 @@ table.services {
 
 .sidebar {
   color: #333;
-  font-size: 13px;
+  font-size: pem(13);
 
   .module {
     background: #f1f1f1;
@@ -197,12 +213,125 @@ table.services {
     -webkit-border-radius: 4px;
 
     h2 {
-      font-size: 13px;
+      font-size: pem(13);
+      line-height: pem(20);
       margin: 0px;
       border-bottom: 1px solid #ccc;
-      line-height: 20px;
       padding-bottom: 6px;
       margin-bottom: 6px;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Media Queries */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 979px) {
+  .wrapper {
+    .wrapper-header {
+      .header {
+        width: 80%
+      }
+    }
+
+    .wrapper-content {
+      .content {
+        width: 80%;
+
+        .main {
+          width: 75%;
+        }
+
+        .sidebar {
+          width: 23%;
+          .module h2 {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .wrapper {
+    .wrapper-header {
+      height: $mobile_header_height;
+    }
+  }
+
+  .system-status {
+    height: $mobile_header_height/2;
+
+    .current, .refresh-timer {
+      float: left;
+      height: $mobile_header_height/2;
+      line-height: $mobile_header_height/2;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    .wrapper-header {
+      .header {
+        width: 80%
+      }
+    }
+
+    .wrapper-content {
+      .content {
+        width: 80%;
+
+        .main {
+          width: 100%;
+        }
+
+        .sidebar {
+          margin-top: 20px;
+          text-align: center;
+          width: 100%;
+          .module h2 {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .wrapper {
+    .wrapper-header {
+      .header {
+        width: 95%
+      }
+    }
+
+    .wrapper-content {
+      .content {
+        width: 95%;
+
+        .main {
+          width: 100%;
+        }
+
+        .sidebar {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .system-status {
+    .current {
+      font-size: pem(18);
+    }
+    .refresh-timer {
+      font-size: pem(10);
     }
   }
 }
