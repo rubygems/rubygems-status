@@ -8,7 +8,7 @@ class PingWorker
   def check_socket(s)
     data = s.gets
     data =~ %r!^HTTP/1\.\d (\d)(\d{2})!
-    $1.to_i != 5 if $1
+    ![4, 5].include?($1.to_i) if $1
   end
 
   def update_raw_status(status, service)
