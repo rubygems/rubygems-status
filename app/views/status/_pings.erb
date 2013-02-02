@@ -12,7 +12,7 @@
       </td>
       <td class="time">
         <% if !i.unknown? %>
-          updated <%= service_last_update_time(i) %>
+          updated <%= service_last_update_time(i) %> ago
         <% else %>
           <span class="unknown">&mdash;</span>
         <% end %>
