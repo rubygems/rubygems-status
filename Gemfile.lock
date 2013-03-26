@@ -54,7 +54,7 @@ GEM
     mime-types (1.21)
     multi_json (1.7.2)
     newrelic_api (1.2.4)
-    pg (0.14.1)
+    pg (0.15.0)
     polyglot (0.3.3)
     puma (1.6.3)
       rack (~> 1.2)
