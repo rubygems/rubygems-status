@@ -6,10 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.tweet
 //= require_tree .
 
 $(document).ready(function() {
   StatusTimer.init();
-  $('#tweets').tweet();
 });
