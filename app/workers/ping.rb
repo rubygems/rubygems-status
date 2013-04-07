@@ -30,16 +30,13 @@ class PingWorker
     s << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     s2 = TCPSocket.new "rubygems.org", 80
-    s2 << "HEAD /stats HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+    s2 << "GET / HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     s3 = TCPSocket.new "rubygems.org", 80
-    s3 << "HEAD /api/v1/downloads HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
+    s3 << "GET /api/v1/downloads HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
-    s4 = TCPSocket.new "f1.rubygems.org", 80
+    s4 = TCPSocket.new "lb01-aws.rubygems.org", 80
     s4 << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
-
-    s5 = TCPSocket.new "f2.rubygems.org", 80
-    s5 << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     s6 = TCPSocket.new "rubygems.org", 80
     s6 << "HEAD /api/v1/dependencies HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
@@ -49,11 +46,10 @@ class PingWorker
     @v1_api = false
     @push_api = false
     @lb = 0
-    @f1 = false
-    @f2 = false
+    @lb01 = false
     @dep_api = false
 
-    sockets = [s, s2, s3, s4, s5, s6]
+    sockets = [s, s2, s3, s4, s6]
 
     fin = Time.now + @timeout
 
@@ -72,11 +68,8 @@ class PingWorker
           @v1_api = check_socket(s3)
           @push_api = @v1_api
         when s4
-          @f1 = check_socket(s4)
-          @lb += 1 if @f1
-        when s5
-          @f2 = check_socket(s5)
-          @lb += 1 if @f2
+          @lb01 = check_socket(s4)
+          @lb += 1 if @lb01
         when s6
           @dep_api = check_socket(s6)
         end
@@ -91,14 +84,7 @@ class PingWorker
     update_status @v1_api, "V1 API"
     update_status @dep_api, "Dependency API"
 
-    status = case @lb
-             when 0
-               "down"
-             when 1
-               "partial"
-             else
-               "up"
-             end
+    status = (@lb > 0 ? "up" : "down")
 
     update_raw_status status, "Load Balancers"
   end
