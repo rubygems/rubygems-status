@@ -52,7 +52,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    multi_json (1.7.5)
+    multi_json (1.7.6)
     newrelic_api (1.2.4)
     pg (0.15.1)
     polyglot (0.3.3)
