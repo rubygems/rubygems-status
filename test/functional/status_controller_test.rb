@@ -5,10 +5,4 @@ class StatusControllerTest < ActionController::TestCase
     get :show
     assert_response :success
   end
-
-  test "should get system" do
-    get :system
-    assert_response :success
-  end
-
 end
