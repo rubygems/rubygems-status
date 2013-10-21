@@ -1,5 +1,10 @@
 before_script: bundle exec rake db:create db:schema:load
 language: ruby
+
+before_script:
+  - psql -c 'create database status_test;' -U postgres
+  - rake db:migrate
+
 rvm:
   - 1.9.3
   - 2.0.0
