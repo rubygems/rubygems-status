@@ -12,7 +12,7 @@ class Ping < ActiveRecord::Base
   end
 
   def seconds_ago
-    time_now.to_i - last_seen.to_i
+    current_time.to_i - last_seen.to_i
   end
 
   def state
@@ -20,7 +20,7 @@ class Ping < ActiveRecord::Base
     status
   end
   
-  def time_now
+  def current_time
     Time.now
   end
 end

@@ -54,7 +54,7 @@ class PingTest < ActiveSupport::TestCase
     past = present - time_change
     
     ping = Ping.new
-    ping.expects(:time_now).returns(present)
+    ping.expects(:current_time).returns(present)
     ping.expects(:last_seen).returns(past)
     
     assert_equal(ping.seconds_ago, time_change, "true")
