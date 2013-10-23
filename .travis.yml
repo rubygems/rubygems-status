@@ -3,7 +3,7 @@ language: ruby
 
 before_script:
   - psql -c 'create database status_test;' -U postgres
-  - rake db:migrate
+  - rake db:schema:load
 
 rvm:
   - 1.9.3
