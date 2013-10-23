@@ -105,12 +105,12 @@ span.status {
   width: 14px;
   height: 20px;
   line-height: 20px;
-  background: url('/assets/grey.png') no-repeat 0px center;
+  background: image-url('grey.png') no-repeat 0px center;
 }
 
-span.status-up      { background: url('/assets/green.png') no-repeat 0px center; }
-span.status-down    { background: url('/assets/red.png') no-repeat 0px center; }
-span.status-partial { background: url('/assets/yellow.png') no-repeat 0px center; }
+span.status-up      { background: image-url('green.png') no-repeat 0px center; }
+span.status-down    { background: image-url('red.png') no-repeat 0px center; }
+span.status-partial { background: image-url('yellow.png') no-repeat 0px center; }
 
 .color         { text-shadow: #fff 0px 1px 0px; }
 .color-up      { color: #89e119; }
