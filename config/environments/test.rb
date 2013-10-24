@@ -33,4 +33,7 @@ RubygemsStatus::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+  
+  # Set `secret_key_base` in the test environment to silence Rails warnings.
+  config.secret_key_base = "secret_key_base"
 end
