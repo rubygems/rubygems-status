@@ -12,15 +12,11 @@ class Ping < ActiveRecord::Base
   end
 
   def seconds_ago
-    current_time.to_i - last_seen.to_i
+    Time.now.to_i - last_seen.to_i
   end
 
   def state
     return "unknown" if unknown?
     status
-  end
-  
-  def current_time
-    Time.now
   end
 end

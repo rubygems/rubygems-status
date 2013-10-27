@@ -49,14 +49,16 @@ class PingTest < ActiveSupport::TestCase
   end
   
   test "seconds_ago" do 
-    present = Time.now
-    time_change = 100
-    past = present - time_change
-    
+    time = Time.now
+    time_change = 10
     ping = Ping.new
-    ping.expects(:current_time).returns(present)
-    ping.expects(:last_seen).returns(past)
     
-    assert_equal(ping.seconds_ago, time_change, "true")
+    Timecop.freeze(time) do 
+      ping.last_seen = Time.now
+    end
+    
+    Timecop.travel(time + time_change) do 
+      assert_equal(ping.seconds_ago, time_change, "true")
+    end
   end
 end
