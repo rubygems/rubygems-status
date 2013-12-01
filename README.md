@@ -1,5 +1,7 @@
 # Rubygems Status Page
 
+[![Build Status](https://travis-ci.org/rubygems/rubygems-status.png?branch=master)](https://travis-ci.org/rubygems/rubygems-status)
+
 A simple rails app to show the status of rubygems.org infrastructure
 
 Available at [http://status.rubygems.org](http://status.rubygems.org)
