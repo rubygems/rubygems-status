@@ -5,7 +5,7 @@ gem 'rails', '3.2.15'
 gem 'json'
 gem 'newrelic_api'
 gem 'pg'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 1.0'
 gem 'puma'
 
 group :assets do
