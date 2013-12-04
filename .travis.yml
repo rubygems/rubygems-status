@@ -1,8 +1,13 @@
-before_script: bundle exec rake db:create db:schema:load
 language: ruby
+
 rvm:
   - 1.9.3
   - 2.0.0
+
+before_script:
+  - psql -c 'create database status_test;' -U postgres
+  - bundle exec rake db:schema:load
+
 notifications:
   email:
   - sferik@gmail.com
