@@ -19,13 +19,4 @@ class Ping < ActiveRecord::Base
     return "unknown" if unknown?
     status
   end
-
-  def as_json(options={})
-    {
-      :name        => service, 
-      :description => description, 
-      :status      => status,
-      :last_update => last_seen
-    }
-  end
 end
