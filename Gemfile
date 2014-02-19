@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'rails_12factor'
 
 gem 'rake'
 gem 'mocha', :require => false
