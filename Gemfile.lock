@@ -33,7 +33,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.1)
+    coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
