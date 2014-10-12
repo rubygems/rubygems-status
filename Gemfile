@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.0.0' unless ENV['CI']
 
-gem 'rails', '~> 4.0.8'
+gem 'rails', '~> 4.1.6'
 
 gem 'json'
 gem 'pg'
