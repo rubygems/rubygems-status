@@ -81,8 +81,8 @@ pre {
     weight: normal;
     style: normal;
   }
-  src: url("/fonts/icomoon.eot");
-  src: url("/fonts/icomoon.eot?#iefix") format("eot"), url("/fonts/icomoon.woff") format("woff"), url("/fonts/icomoon.ttf") format("truetype");
+  src: font-url("icomoon.eot");
+  src: font-url("icomoon.eot?#iefix") format("eot"), font-url("icomoon.woff") format("woff"), font-url("icomoon.ttf") format("truetype");
 }
 
 [data-icon]:before {

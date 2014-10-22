@@ -18,13 +18,6 @@
   </head>
 
   <body class="body--index">
-
-
-
-
-
-
-
     <header class="header header--interior">
       <div class="l-wrap--header">
         <a class="header__logo-wrap" href="/">
@@ -55,28 +48,11 @@
     </header>
 
     <main class="main--interior">
-      <%= yield %>
-    </main>
-
-
-
-
-
-
-
-
-
-    <div class="wrapper">
-      <div class="wrapper-header">
-        <div class="header">
-          <%= render :partial => 'status/current' %>
-        </div>
+      <div class="l-wrap--b">
+        <%= render :partial => 'status/current' %>
+        <%= yield %>
       </div>
-    </div>
-
-
-
-
+    </main>
 
     <div class="modal-wrap" id="js-sign-in-modal">
       <form class="modal--sign-in">
@@ -120,7 +96,7 @@
       <div class="l-wrap--footer">
         <div class="l-overflow">
           <div class="nav--v l-col--r--pad">
-            <a class="nav--v__link--footer" href="/status">Status</a>
+            <a class="nav--v__link--footer is-active" href="/status">Status</a>
             <a class="nav--v__link--footer" href="/uptime">Uptime</a>
             <a class="nav--v__link--footer" href="https://github.com/rubygems/rubygems.org" target='_blank'>Code</a>
             <a class="nav--v__link--footer" href="https://groups.google.com/forum/#!forum/rubygems-org" target='_blank'>Discuss</a>
@@ -138,31 +114,31 @@
         <div class="footer__sponsors">
           <a class="footer__sponsor" href="http://rubycentral.org/" target="_blank">
             Supported by
-            <img alt="Ruby Central" class="footer__sponsor__logo" src="/logos/ruby-central.png">
+            <%= image_tag("logos/ruby-central.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="https://www.bluebox.net/" target="_blank">
             Hosted by
-            <img alt="Blue Box" class="footer__sponsor__logo" src="/logos/bluebox.png">
+            <%= image_tag("logos/bluebox.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="http://www.dockyard.com/" target="_blank">
             Designed by
-            <img alt="DockYard" class="footer__sponsor__logo" src="/logos/dockyard.png">
+            <%= image_tag("logos/dockyard.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="https://dnsimple.com/" target="_blank">
             Resolved with
-            <img alt="DNSimple" class="footer__sponsor__logo" src="/logos/dnsimple.png">
+            <%= image_tag("logos/dnsimple.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="http://newrelic.com/" target="_blank">
             Optimized by
-            <img alt="New Relic" class="footer__sponsor__logo" src="/logos/new-relic.png">
+            <%= image_tag("logos/new-relic.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="http://get.gaug.es/" target="_blank">
             Tracking by
-            <img alt="Gauges" class="footer__sponsor__logo" src="/logos/gauges.png">
+            <%= image_tag("logos/gauges.png", class: "footer__sponsor__logo") %>
           </a>
           <a class="footer__sponsor" href="https://www.runscope.com/" target="_blank">
             Monitored by
-            <img alt="Runscope" class="footer__sponsor__logo" src="/logos/runscope.png">
+            <%= image_tag("logos/runscope.png", class: "footer__sponsor__logo") %>
           </a>
         </div>
       </div>

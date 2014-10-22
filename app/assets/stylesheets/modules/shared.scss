@@ -1,7 +1,7 @@
 @import "load";
 
 .body--index, .header--interior {
-  background-image: url("/red.jpg");
+  background-image: image-url("red.jpg");
 }
 
 .body--index {

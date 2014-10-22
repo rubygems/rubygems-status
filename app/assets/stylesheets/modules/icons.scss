@@ -1,9 +1,13 @@
 @import "load";
 
 .icon--normal:before,
+.icon--up:before,
 .icon--disruption:before,
+.icon--partial:before,
 .icon--outage:before,
-.icon--no-data:before {
+.icon--down:before,
+.icon--no-data:before,
+.icon--unknown:before {
   display: inline-block;
   font-family: "icomoon";
   @extend %font-smoothing;
@@ -12,19 +16,23 @@
   speak: none;
 }
 
-.icon--normal:before {
+.icon--normal:before,
+.icon--up:before {
   background-color: $green;
 }
 
-.icon--disruption:before {
+.icon--disruption:before,
+.icon--partial:before {
   background-color: $yellow;
 }
 
-.icon--outage:before {
+.icon--outage:before,
+.icon--down:before {
   background-color: $red;
 }
 
-.icon--no-data:before {
+.icon--no-data:before,
+.icon--unknown:before {
   background-color: $gray;
 }
 

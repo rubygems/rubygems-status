@@ -1,6 +1,9 @@
 @import "load";
 
-.status__subheading {
+.status__subheading--up,
+.status__subheading--down,
+.status__subheading--partial,
+.status__subheading--unknown {
   padding: {
     top: 4px;
     bottom: 4px;
@@ -9,7 +12,6 @@
   border-left: 1px solid $gray;
   font-weight: 600;
   text-transform: uppercase;
-  color: $green;
   @media (max-width: 929px) {
     margin-left: 10px;
     padding-left: 16px;
@@ -22,6 +24,22 @@
     top: -10px;
     font-size: 30px;
   }
+}
+
+.status__subheading--up {
+  color: $green;
+}
+
+.status__subheading--down {
+  color: $red;
+}
+
+.status__subheading--partial {
+  color: $yellow;
+}
+
+.status__subheading--unknown {
+  color: $gray;
 }
 
 .status__refresh {
@@ -103,7 +121,7 @@
 
 .twitter-timeline {
   background: {
-    image: url("/light-bg.png");
+    image: image-url("light-bg.png");
     size: 3px;
   }
 }
