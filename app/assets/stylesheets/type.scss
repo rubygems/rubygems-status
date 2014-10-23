@@ -187,6 +187,7 @@ a.t-list__item {
 
   a {
     @extend .t-link;
+    word-wrap: break-word;
   }
 
   b, strong {
