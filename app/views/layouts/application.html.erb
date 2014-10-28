@@ -29,12 +29,13 @@
         </a>
 
         <div class="header__nav-links-wrap">
-          <form class="header__search-wrap">
-            <input class="header__search" id="header__search" name="header__search" placeholder="Search Gems..." type="search">
-            <label class="header__search__icon" data-icon="⌕" for="header__search">
+          <%= form_tag "https://rubygems.org/search", :id => "main-search", :class => "header__search-wrap", :method => :get do %>
+            <%= search_field_tag :query, params[:query], :placeholder => "Search Gems&hellip;".html_safe, :class => "header__search" %>
+            <%= label_tag :query do %>
               <span class="t-hidden">Search gems</span>
-            </label>
-          </form>
+            <% end %>
+            <%= submit_tag '⌕', :id => 'search_submit', :name => nil, :class => "header__search__icon" %>
+          <% end %>
 
           <nav class="header__nav-links">
             <a class="header__nav-link" href="http://rubygems.org/gems">Gems</a>
