@@ -92,20 +92,17 @@
 .status__last-updated {
   font-size: 12px;
   color: darken($gray, 10%);
-  @media (max-width: 459px) {
-    margin-top: 8px;
-  }
   @media (min-width: 460px) and (max-width: 699px) {
     position: absolute;
-    top: 3px;
+    top: 6px;
     right: 0;
   }
-  @media (min-width: 700px) and (max-width: 829px) {
+  @media (max-width: 829px) {
     margin-top: 8px;
   }
   @media (min-width: 830px) {
     position: absolute;
-    top: 3px;
+    top: 6px;
     right: 0;
   }
 }
