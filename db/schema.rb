@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20120306045347) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "pings", force: true do |t|
     t.string   "service"
     t.string   "status"

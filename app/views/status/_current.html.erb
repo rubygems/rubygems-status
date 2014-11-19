@@ -1,9 +1,10 @@
-<div class="system-status">
-  <div class="current">
-    RubyGems.org Status: <span class="color color-<%= @status %>"><%= @status.upcase %></span>
-  </div>
-  <div class="refresh-timer">
-    This page will <strong>automatically refresh</strong> (refreshing in <span id="refresh_timer">0</span> seconds)
-  </div>
-  <div class="clear"></div>
+<div class="l-relative">
+  <h1 class="t-display page__heading">
+    Status
+    <span class="status__subheading--<%= @status %>"><%= @status.upcase %></span>
+  </h1>
+  <p class="page__heading__info" data-icon="⧖">
+    page refresh in
+    <b id="refresh_timer">0</b>
+  </p>
 </div>

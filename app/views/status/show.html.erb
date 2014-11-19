@@ -1,8 +1,40 @@
-<div class="main">
+<div class="l-overflow">
   <%= render :partial => 'pings' %>
+
+  <div class="status__twitter">
+    <a class="twitter-timeline" href="https://twitter.com/rubygems_status" data-widget-id="491600163853459456" data-border-color="#c1c4ca">Tweets by @rubygems_status</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
 </div>
-<div class="sidebar">
-  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/rubygems_status" data-widget-id="320697714532814848">Tweets by @rubygems_status</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-<div class="clear"></div>
+
+<script>
+  $(window).load(function() {
+    // Define the style variables
+    var $background_color = "#fcfcfc";
+    var $font = "'aktiv-grotesk-std', sans-serif";
+    var $font_weight = "normal";
+    var $border_color = "#d0d3d7";
+    var $border_radius = "5px";
+    var $text_color = "#141c22";
+    var $link_color = "#1eb5ea";
+    var $name_color = "#141c22";
+    var $subtext_color = "#a6aab2"; // Colour of any small text
+    var $sublink_color = "#a6aab2"; // Colour of smaller links, eg: @user, date, expand/collapse links
+    var $avatar_border = "0px solid #36b787";
+    var $avatar_border_radius = "5px";
+    var $icon_color = "#939393"; // Color of the reply/retweet/favourite icons
+    var $icon_hover_color = "#36b787"; // Hover color the reply/retweet/favourite icons
+    var $header_background = "#fcfcfc";
+    var $header_text_color = "#a6aab2";
+    var $follow_button_link_color = "#141c22";
+    var $footer_background = "#fcfcfc";
+    var $footer_tweetbox_background = "#ff4425";
+    var $footer_tweetbox_textcolor = "#ffffff";
+    var $footer_tweetbox_border ="0px";
+    var $load_more_background ="#f2f2f2";
+    var $load_more_text_color = "#a6aab2";
+
+    // Apply the styles
+    $("iframe").contents().find('head').append('<style>.html, body, h1, h2, h3, blockquote, p, ol, ul, li, img, iframe, button, .tweet-box-button{font-family:'+$font+' !important;font-weight:'+$font_weight+' !important;} .var-narrow .timeline-header, .var-narrow .tweet, .var-narrow .timeline-footer { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAIAAABvrngfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRjMyNEVGOTM2OUUxMUU0OTlCQUNBNTZFRTZGMDIzNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRjMyNEVGQTM2OUUxMUU0OTlCQUNBNTZFRTZGMDIzNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkFGMzI0RUY3MzY5RTExRTQ5OUJBQ0E1NkVFNkYwMjM0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFGMzI0RUY4MzY5RTExRTQ5OUJBQ0E1NkVFNkYwMjM0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+uMf7SQAAADpJREFUeNpUyjESACAIA0FiC/9/KNBjHFHHbVLk4O4AzEyOQfJDVXEigp+qrqof9PeqLTNfdbGYAgwAO2YU4OK8rvkAAAAASUVORK5CYII=); background-size: 3px; } .timeline {border-radius: ' + $border_radius + '!important;} .thm-dark .retweet-credit,.h-feed, .stats strong{color:' + $text_color + ' !important; } a:not(.follow-button):not(.tweet-box-button):not(.expand):not(.u-url), .load-more{color:' + $link_color + ' ;} .follow-button { color:' + $follow_button_link_color + ' !important; position: relative !important; float: right !important; vertical-align: top !important; top: initial !important; right: initial !important; } .timeline-header { padding: 20px 15px !important; overflow: auto; background:' + $header_background + '; border-radius:' + $border_radius + ' ' + $border_radius + ' 0px 0px;} .timeline-header h1 { width: auto !important; float: left !important; vertical-align: top; } .timeline-header h1 a { text-transform: uppercase !important; color:' + $header_text_color + ' !important; padding-top: 2px; font-weight: 800 !important; font-size: 12px !important; position: relative !important; top: 2px !important; } .timeline-footer{border-radius:0px 0px ' + $border_radius + ' ' + $border_radius + ' !important; background-color:' + $footer_background + ' !important;} .tweet-box-button{background-color:' + $footer_tweetbox_background + ' !important; color:' + $footer_tweetbox_textcolor + ' !important; border:' + $footer_tweetbox_border + ' !important;} .timeline .stream, .tweet-actions{background:' + $background_color + ' !important;} .tweet-actions{box-shadow:0 0 10px 5px' + $background_color + ' !important;} .ic-mask{background-color:' + $icon_color + ' !important;} a:hover .ic-mask, a:focus .ic-mask{background-color:' + $icon_hover_color + ' !important;} .header .avatar { width: 28px !important; height: 28px !important; border-radius: '+ $avatar_border_radius + ' !important; border:' + $avatar_border + ' !important;} .p-name{color:'+$name_color+' !important;} .customisable-border{border-color:' + $border_color + ' !important;} span.p-nickname, .u-url, .expand{color:'+$sublink_color+' !important;} .load-more, .no-more-pane { background-color:' + $load_more_background + ' !important; color:' + $load_more_text_color + '!important; text-shadow: none !important; } .retweet-credit{color:' + $subtext_color + ' !important;} .var-narrow .tweet { padding: 20px 15px !important; } .e-entry-content { padding-left: 36px !important; } .tweet .e-entry-title { line-height: 1.43 !important; margin: 10px 0 0 0 !important; } .footer { display: none !important; } a.tweet-box-button { text-align: center; font-weight: 700 !important; }</style>');
+  });
+</script>

@@ -1,0 +1,71 @@
+@import "load";
+
+.icon--normal:before,
+.icon--up:before,
+.icon--disruption:before,
+.icon--partial:before,
+.icon--outage:before,
+.icon--down:before,
+.icon--no-data:before,
+.icon--unknown:before {
+  display: inline-block;
+  font-family: "icomoon";
+  @extend %font-smoothing;
+  text-align: center;
+  color: $white;
+  speak: none;
+}
+
+.icon--normal:before,
+.icon--up:before {
+  background-color: $green;
+}
+
+.icon--disruption:before,
+.icon--partial:before {
+  background-color: $yellow;
+}
+
+.icon--outage:before,
+.icon--down:before {
+  background-color: $red;
+}
+
+.icon--no-data:before,
+.icon--unknown:before {
+  background-color: $gray;
+}
+
+.status__icon,
+.uptime__icon,
+.uptime__definition__icon {
+  &:before {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    @media (max-width: 529px) {
+      font-size: 12px;
+    }
+    @media (min-width: 530px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.status__icon {
+  &:before {
+    position: absolute;
+    top: -4px;
+    left: 0;
+  }
+}
+
+.uptime__definition__icon {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: -6px;
+    left: -40px;
+  }
+}

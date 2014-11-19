@@ -24,8 +24,8 @@ var StatusTimer = {
     this.current_timer--;
     this.element.text(this.current_timer);
 
-    setTimeout(function() { 
-      StatusTimer.refresh(); 
+    setTimeout(function() {
+      StatusTimer.refresh();
     }, 1000);
   }
 };
