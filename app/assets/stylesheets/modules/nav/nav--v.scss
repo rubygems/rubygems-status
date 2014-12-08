@@ -1,6 +1,6 @@
 @import "load";
 
-.nav--v__link, .nav--v__link--footer {
+.nav--v__link--footer {
   display: block;
   font: {
     weight: 800;
@@ -8,43 +8,24 @@
   }
   line-height: 1.66;
   text-transform: uppercase;
+  color: $white;
   @include transition-duration(.25s);
   @include transition-property(color);
   &:not(:last-child) {
     margin-bottom: 10px;
   }
-  &.is-active {
-    color: $red;
-  }
-}
-
-.nav--v__link {
-  padding-right: 32px;
-  color: $black;
   @media (max-width: 779px) {
     &:last-child {
-      margin-bottom: 60px;
+      margin-bottom: 36px;
     }
   }
-  &:focus, &:hover, &:active {
-    color: $red;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-
-.nav--v__link--footer {
-  color: $white;
   &:focus, &:hover, &:active {
     color: rgba($white, .3);
   }
   &:focus {
     outline: none;
   }
-  @media (max-width: 779px) {
-    &:last-child {
-      margin-bottom: 36px;
-    }
+  &.is-active {
+    color: $red;
   }
 }
