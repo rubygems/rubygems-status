@@ -2,17 +2,18 @@ source 'https://rubygems.org'
 
 ruby '2.0.0' unless ENV['CI']
 
-gem 'rails', '~> 4.1.7'
+gem 'rails', '~> 4.2.0'
 
+gem 'coffee-rails'
+gem 'jquery-rails'
 gem 'json'
 gem 'pg'
 gem 'puma'
-gem 'jquery-rails'
-gem 'sass-rails'
-gem 'coffee-rails'
-gem 'uglifier'
 gem 'rails_12factor'
+gem 'sass-rails'
+gem 'spring'
+gem 'uglifier'
 
-gem 'rake'
 gem 'mocha', :require => false
+gem 'rake'
 gem 'timecop'
