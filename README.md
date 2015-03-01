@@ -4,7 +4,7 @@
 
 A simple rails app to show the status of rubygems.org infrastructure
 
-Available at [http://status.rubygems.org](http://status.rubygems.org)
+Available at [https://status.rubygems.org](https://status.rubygems.org)
 
 ## Installation
 
