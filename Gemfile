@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0' unless ENV['CI']
 
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 4.2.1'
 
 gem 'coffee-rails'
 gem 'jquery-rails'
