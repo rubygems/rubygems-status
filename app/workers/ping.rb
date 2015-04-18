@@ -35,7 +35,7 @@ class PingWorker
     s3 = TCPSocket.new "rubygems.org", 80
     s3 << "GET /api/v1/downloads HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
-    s4 = TCPSocket.new "lb02.production.rubygems.org", 80
+    s4 = TCPSocket.new "rubygems.org", 80
     s4 << "HEAD /latest_specs.4.8.gz HTTP/1.0\r\nHost: rubygems.org\r\n\r\n"
 
     s6 = TCPSocket.new "rubygems.org", 80
