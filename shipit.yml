@@ -1,0 +1,9 @@
+dependencies:
+  override: []
+
+deploy:
+  override:
+    - push-to-heroku rubygems-status
+
+fetch:
+  - fetch-heroku-version rubygems-status
