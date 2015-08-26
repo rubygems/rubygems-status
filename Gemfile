@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.7' unless ENV['CI']
+ruby '2.2.3' unless ENV['CI']
 
 gem 'rails', '~> 4.2.1'
 
